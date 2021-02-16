@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThirdHW</title>
+    <script>
+      // Задание 1
+      console.log("Задание 1");
+      var n = parseInt(prompt("Введите макс число"));
+      console.log("Введенное число: ", n);
+
+      getSimpleNumbers();
+      function getSimpleNumbers() {
+        console.log(1);
+        var i = 2;
+        while (i < n) {
+          var half = Math.floor(i / 2);
+          var isPrime = true;
+          for (var j = 2; j < half; j++) {
+            if (i % j == 0) {
+              isPrime = false;
+            }
+          }
+          if (isPrime) console.log(i);
+          i++;
+        }
+      }
+
+      // Задание 2
+      console.log("Задание 2");
+      var number = parseInt(prompt("Введите число для задания 2", 0));
+      console.log("Введенное число: ", number);
+      var i = 0;
+      do {
+        if (i == 0) console.log(i, " - это ноль");
+        else if (i % 2 == 0) console.log(i, " - это четное число");
+        else console.log(i, " - это нечетное число");
+        i++;
+      } while (i < number + 1);
+
+      // Задание 3
+      console.log("Задание 3");
+      var num = parseInt(prompt("Введите число для задания 3", 0));
+      console.log("Введенное число: ", num);
+      for (var i = 0; i < num + 1; console.log(i++));
+
+      // Задание 4
+      console.log("Задание 4");
+      var rowCount = prompt("Введите число уровней для задания 4", 0);
+      console.log("Введенное число: ", rowCount);
+      var rowStr = "х";
+      for (var i = 0; i < rowCount; i++) {
+        for (var j = 0; j < i; j++) {
+          rowStr = rowStr + "x";
+        }
+        console.log(rowStr);
+        rowStr = "x";
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>

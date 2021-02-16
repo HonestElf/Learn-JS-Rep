@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScondLesson</title>
+
+    <script>
+      var number;
+      var attempts = 0;
+
+      number = Math.round(1000 + Math.random() * (9999 - 1000));
+      gnumber();
+
+      function gnumber() {
+        attempts++;
+        var result = parseInt(
+          prompt("Введите число (-1 - Закончить игру) " + number)
+        );
+        // Введено не число
+        if (result == 0 || isNaN(result)) {
+          alert("Введено не число");
+          gnumber();
+        }
+
+        // Число угадано
+        else if (number == result) {
+          alert("Чиcло угадано. Число попыток: " + attempts);
+          location.reload(); //бновление страницы
+        }
+
+        // выход из игры
+        else if (result == -1) {
+          alert("Спасибо за игру");
+        } else {
+          if (result > number) {
+            alert("Ваше число больше загаданного");
+          } else {
+            alert("Ваше число меньше загаданного");
+          }
+          gnumber();
+        }
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>

@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    font-family: Arial;
+}
+
+.content {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 50px;
+    box-sizing: border-box;
+}
+nav {
+    background-color: #445162;
+    text-align: center;
+}
+
+nav li{
+    display: inline-block;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+nav a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: blanchedalmond;
+}
+.header { 
+    background-color: #445162;
+    text-align: center;
+}
+
+.header .text {
+    display: inline-block;
+    width: 600px;
+    margin-right: 100px;
+}
+.header h2 {
+    float: left;
+    margin-bottom: 40px;
+    font-weight: normal;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-size: 60px;
+}
+
+.header ul {
+    float: left;
+    margin-left: 35px;
+    list-style-image: url(image/check_icon.png);
+
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: left;
+}
+
+.header .rectShape {
+    width: 469px;
+    height: 214px;
+    background-color: #ffffff;
+    display: inline-block;
+border-bottom: 5px solid #242b35;
+vertical-align: top;
+}
+
+.header .rectShape:hover {
+border-bottom: none;
+}
+
+.aboutZone{
+    background-color: white;
+    text-align: center;
+}
+.aboutZone .text {
+    display: inline-block;
+    width: 650px;
+    text-align: left;
+    margin-right: 90px;
+}
+
+.aboutZone h2 {
+    float: left;
+    margin-bottom: 30px;
+    color: #445161;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.aboutZone p {
+    float: left;
+    margin-bottom: 25px;
+    width: 649px;
+    color: #333333;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.aboutZone .rectShape {
+    display: inline-block;
+    opacity: 0.5;
+    width: 430px;
+    height: 245px;
+    background: linear-gradient(122deg, #445162, #ffffff);
+    vertical-align: top;
+}
+
+.aboutZone .rectShape:hover {
+    opacity: 1;
+}
+.pluses {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.blueHeaders{
+    color: #445161;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    margin-bottom: 30px;
+}
+.whiteHeaders
+{
+    color: #f5f5f5;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    margin-bottom: 30px;
+}
+
+.pluses .pluspoint{
+    display: inline-block;
+    width: 560px;
+    text-align: left;
+    margin-right: 25px;
+    box-sizing: border-box;
+    vertical-align: top;
+    min-height: 36px;
+}
+
+.pluses .pluspoint {
+    background: url(image/plusesListPointer.png) no-repeat 0 4px;
+    padding-left: 42px;
+    margin-bottom: 35px;
+
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.points>div:nth-child(even) {
+margin-right: 0px;}
+
+.scrinShots {
+    background-color: white;
+    text-align: center;
+}
+
+.scrinContainer>div:nth-child(even) {
+    margin-right: 0px;
+}
+    
+.scrinShots .scrinPoint {
+    display: inline-block;
+    width: 570px;
+    text-align: left;
+    margin: 0px 15px 30px 0px;
+    vertical-align: top;
+    
+}
+
+.scrinShots .scrinPoint img{
+    float: left;
+    width: 200px;
+    height: 150px;
+    background-color: #445161;
+    margin-right: 15px;
+}
+
+.scrinShots .scrinPoint h3{
+    overflow: hidden;
+    margin-bottom: 15px;
+    color: #445161;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.scrinShots .scrinPoint p{
+    overflow: hidden;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+.reviews {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.reviewContainer>div:nth-child(2n){
+margin-right: 0px;
+}
+
+.reviews .reviewNote {
+    display: inline-block;
+    margin-bottom: 24px;
+    margin-right: 34px;
+    width: 570px;
+    vertical-align: top;
+}
+
+.reviews .reviewNote img{
+    float: left;
+    width: 77px;
+    height:  77px;  
+    border-radius: 100px;
+    background-color: #445161;
+    margin-right: 20px;
+}
+
+.reviews .reviewNote img:hover {
+    box-shadow: 0 0 10px black;
+}
+.reviews .reviewNote .text{
+    float: left;
+    width: 430px;
+    padding-top: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    background-color: #ebebeb;
+}
+.reviews .reviewContainer .text:before{
+  content:"";
+   float: left;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    
+    border-right: 10px solid #ebebeb;  
+    margin-left: -30px;
+    margin-top: 15px;  
+}
+
+.reviews .reviewNote p{
+    float: left;
+    margin-bottom: 15px;
+
+    width: 436px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    font-style: italic;
+    text-align: left;
+}
+.reviews .reviewNote h4{
+    float: left;
+    color: #989898;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.buy {
+    background-color: #ffffff;
+    text-align: center;
+    vertical-align: top;
+}
+
+.buy .option {
+    border-radius: 5px;
+    display: inline-block;
+    width: 300px;
+    margin-right: 22px;
+    margin-left: 22px;
+    background-color: #445162;
+    text-align: left;
+    vertical-align: bottom;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.buy .option:hover {
+    transform: scale(1.15);
+    transition: transform 1s;
+}
+
+.buy .option h3 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.buy .option .price {
+    outline: 2px solid #445162;
+    background-color: white;
+    float: left;
+    margin-left: -17px;
+    margin-bottom: 10px;
+    padding: 17px;
+    text-align: center;
+    width: 100%
+
+}
+
+.buy .option .price h4{
+    color: #445162;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.buy .option ol {
+    float: left;
+    list-style-position: inside;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.buy .button {
+    border-radius: 5px;
+    float: left;
+    width: 260px;
+    height: 40px;
+    background-color: #ffffff;
+}
+
+.buy .button a{
+    float: left;
+    border-radius: 5px;
+    width: 260px;
+    height: 40px;
+    text-decoration: none;
+
+    color: #445161;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.buy .button:hover{
+    background-color: #dddfe2;;
+}
+
+.buy .button:active{
+    position: relative;
+    top: 3px;
+}
+.contacts {
+    background-color: #445162;
+    text-align: center;
+}
+
+.contacts form>:focus {
+    outline: none;
+}
+
+.contacts form {
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+    margin-right: 45px;
+}
+
+.contacts form input{
+    border-radius: 6px;
+    width: 476px;
+    height: 36px;
+    margin-bottom: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.contacts .name {
+    color: #445162;
+    font-size: 16px;
+    font-weight: 400;
+
+    text-transform: capitalize;
+}
+
+.contacts .mail {
+    color: #445162;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.contacts .mail::placeholder {
+text-transform: capitalize;
+}
+
+.contacts form textarea{
+    border-radius: 6px;
+    width: 476px;
+    height: 156px;    
+    margin-bottom: 22px;
+    padding: 5px 10px 5px 10px;
+    font-family: inherit;
+
+    color: #445162;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    resize: none;
+}
+
+.contacts input[type="button"] {
+    width: 136px;
+    height: 36px;
+
+    color: #445162;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contacts input[type="button"]:hover {
+    background-color: #dddfe2;
+}    
+
+.contacts input[type="button"]:active{
+    position: relative;
+    top: 3px;
+ }
+
+ .contacts .ourContacts {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.contacts .ourContacts p {
+    padding-left: 30px;
+    margin-bottom: 18px;
+ }
+
+ .contacts .skype {
+    background: url(image/skype_icon.png) no-repeat left center;
+}
+
+ .contacts .icq {
+    background: url(image/icq_icon.png) no-repeat left center;
+ }
+
+ .contacts .ourMail {
+    background: url(image/email_icon.png) no-repeat left center;
+}
+
+.contacts .phone {
+    background: url(image/phone_icon.png) no-repeat left center;
+}
+
+ .icons {
+    float: left;
+    width: 240px;
+    height: 42px;
+}
+
+ .icons a{
+    display: inline-block;
+    margin-right: 1px;
+    width: 43px;
+    height: 42px;
+    background: url(image/social_buttons.png) no-repeat;   
+    transition: transform 1s;
+}
+.contacts .icons a:active{
+    position: relative;
+    top: 3px;
+}
+
+.twitter{
+    background-position: -1px top; 
+}
+
+.icons a:hover {
+transform: rotate(360deg);
+}
+
+.icons .facebook{
+    background-position: -50px top;
+}
+
+.icons .linkedin{
+    background-position: -99px top;
+}
+
+.icons .google{
+    background-position: -149px top;
+}
+
+.icons .youtube{
+    background-position: -198px top;
+    margin-right: 0px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.footer h3{
+    color: #445162;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+}
+
+.clr {
+    clear: both;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecondHW</title>
+
+    <script>
+      console.log("Привет!");
+      // Задание 1
+      console.log("Задание №1");
+      var a = 1,
+        b = 1,
+        c,
+        d;
+      c = ++a; //++a=2
+      console.log(c); // 2
+      d = b++;
+      console.log(d); // 1
+      c = 2 + ++a; //2+3
+      console.log(c); // 5
+      d = 2 + b++; //2+2
+      console.log(d); // 4
+      console.log(a); // 3
+      console.log(b); // 3
+      console.log("==========================");
+      // Задание 2
+      console.log("Задание №2");
+      var a = 2;
+      var x = 1 + (a *= 2); //1+(2*2)=5
+      console.log(x); //5
+      console.log("==========================");
+      //Задание 3
+      console.log("Задание №3");
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      var a = getRandomInt(1, 10);
+      var b = getRandomInt(1, 10);
+      console.log("a = ", a);
+      console.log("b = ", b);
+
+      if (a >= 0 && b >= 0) {
+        console.log(a - b);
+      } else if (a < 0 && b < 0) {
+        console.log(a * b);
+      } else {
+        console.log(a + b);
+      }
+      console.log("==========================");
+
+      // Задание 4
+      // console.log("Задание №4");
+      // var c = getRandomInt(0,15);
+      // switch (c){
+      //     case
+      // }
+
+      // Задание 5
+      console.log("Задание №5");
+      var first = getRandomInt(0, 10);
+      var second = getRandomInt(0, 10);
+      console.log("first =", first);
+      console.log("second =", second);
+
+      function plus(lhs, rhs) {
+        return lhs + rhs;
+      }
+
+      function minus(lhs, rhs) {
+        return lhs - rhs;
+      }
+
+      function mult(lhs, rhs) {
+        return lhs * rhs;
+      }
+
+      function del(lhs, rhs) {
+        return lhs / rhs;
+      }
+
+      console.log("plus = ", plus(first, second));
+      console.log("minus = ", minus(first, second));
+      console.log("mult = ", mult(first, second));
+      console.log("del = ", del(first, second));
+      console.log("==========================");
+      // Задание 6
+      console.log("Задание №6");
+      function mathOperation(lhs, rhs, operation) {
+        switch (operation) {
+          case "plus":
+            return plus(lhs, rhs);
+            break;
+
+          case "minus":
+            return minus(lhs, rhs);
+            break;
+
+          case "mult":
+            return mult(lhs, rhs);
+            break;
+
+          case "del":
+            return del(lhs, rhs);
+            break;
+        }
+      }
+
+      var third = getRandomInt(0, 10);
+      var fourth = getRandomInt(0, 10);
+
+      console.log("third =", third);
+      console.log("fourth =", fourth);
+
+      console.log("plus №2 = ", mathOperation(third, fourth, "plus"));
+      console.log("minus №2 = ", mathOperation(third, fourth, "minus"));
+      console.log("mult №2 = ", mathOperation(third, fourth, "mult"));
+      console.log("del №2 = ", mathOperation(third, fourth, "del"));
+      console.log("==========================");
+      //Задание 7
+      console.log("Задание №7");
+      console.log("null is ", typeof null);
+      console.log("0 is ", typeof 0);
+      console.log("null == 0 :", null == 0);
+
+      console.log("==========================");
+      //Задание 8
+      console.log("Задание №8");
+      var value = getRandomInt(0, 10);
+      var power = getRandomInt(0, 10);
+
+      console.log("value =", value);
+      console.log("power =", power);
+
+      function valuePower(val, pow) {
+        if (pow > 1) {
+          --pow;
+          return val * valuePower(val, pow);
+        } else if (pow == 0) {
+          return 1;
+        } else return val;
+      }
+
+      console.log("result is ", valuePower(value, power));
+    </script>
+  </head>
+
+  <body></body>
+</html>
