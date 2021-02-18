@@ -960,7 +960,8 @@ function recursivePrintNumbers(from, to) {
   });
 }
 
-recursivePrintNumbers(5, 10);
+// recursivePrintNumbers(5, 10);
+
 //Задание 35
 console.log("Задание 12.1 - Декораторы - повторить");
 
@@ -1044,7 +1045,7 @@ function f() {
   console.log("Hello!");
 }
 
-f.defer(1000); // выведет "Hello!" через 1 секунду
+// f.defer(1000); // выведет "Hello!" через 1 секунду
 
 //Задание 39
 // Добавьте всем функциям в прототип метод defer(ms),
@@ -1061,7 +1062,7 @@ Function.prototype.deferSec = function (ms) {
 function f(a, b) {
   console.log(a + b);
 }
-f.deferSec(1000)(1, 2); // выведет 3 через 1 секунду.
+// f.deferSec(1000)(1, 2); // выведет 3 через 1 секунду.
 
 //Задание 40
 // Имеется объект dictionary, созданный с помощью Object.create(null)
@@ -1103,16 +1104,62 @@ console.log(dictionary); // "apple,__proto__"
 
 // delay(3000).then(() => alert('выполнилось через 3 секунды'));
 console.log("Задание 14.1 - промисы");
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+// function delay(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// delay(3000).then(() => console.log("выполнилось через 3 секунды"));
+
+//Задание 42
+// Есть много областей, где нам нужны случайные данные.
+// Одной из них является тестирование. Нам могут понадобиться
+// случайные данные: текст, числа и т.д., чтобы хорошо всё проверить.
+// В JavaScript мы можем использовать Math.random().
+//  Но если что-то пойдёт не так, то нам нужно будет перезапустить тест, используя те же самые данные.
+// Для этого используются так называемые «сеяные псевдослучайные генераторы».
+// Они получают «зерно», как первое значение, и затем генерируют следующее, используя формулу.
+// Так что одно и то же зерно даёт одинаковую последовательность, и, следовательно, весь
+// поток легко воспроизводим. Нам нужно только запомнить зерно, чтобы воспроизвести последовательность.
+// Пример такой формулы, которая генерирует более-менее равномерно распределённые значения:
+
+// next = previous * 16807 % 2147483647
+// Если мы используем 1 как зерно, то значения будут:
+
+// 16807
+// 282475249
+// 1622650073
+// …и так далее…
+// Задачей является создать функцию-генератор pseudoRandom(seed),
+//  которая получает seed и создаёт генератор с указанной формулой.
+
+console.log("Задание 15.1 - Генераторы");
+function* pseudoRandom(seed) {
+  let previous = seed;
+  while (true) {
+    previous = (previous * 16807) % 2147483647;
+    yield previous;
+  }
 }
 
-delay(3000).then(() => console.log("выполнилось через 3 секунды"));
+let generator = pseudoRandom(1);
 
-//Задание 35
-console.log("Задание 12.1 - Декораторы - повторить");
-//Задание 35
-console.log("Задание 12.1 - Декораторы - повторить");
+console.log("[1]", generator.next().value); // 16807
+console.log("[2]", generator.next().value); // 282475249
+console.log("[3]", generator.next().value); // 1622650073
+
+//Задание 43
+// Напишите функцию isInteger(num), которая возвращает true,
+// если num – целое число, иначе false.
+console.log("Задание 16.1 - Побитовые операторы");
+
+function isInteger(num) {
+  return (num ^ 0) === num;
+}
+
+console.log("isInteger(1): ", isInteger(1)); // true
+console.log("isInteger(1.5): ", isInteger(1.5)); // false
+console.log("isInteger(-0.5): ", isInteger(-0.5)); // false
+
 //Задание 35
 console.log("Задание 12.1 - Декораторы - повторить");
 //Задание 35
