@@ -117,22 +117,14 @@ console.log(lifePathNumber("1879-03-14"));
 // changes in level the string has and if that figure is more than 20% of the array,
 //  return "Throw Up", if less, return "No Problem".
 console.log("Задача 6");
-
 function seaSick(x) {
-  // let str = /~_/;
-  // let arr = x.match(str);
-  // console.log("Arr: ",arr);
-  // console.log("Length: ",arr.length || []);
-  let myStr = x;
-  let str = myStr.split("~_");
-  console.log("str: ", str);
-  console.log("str.length: ", str.length - 1);
+  let str = x.split("");
+  let counter = 0;
 
-  console.log("x: ", x);
-  console.log("x.length: ", x.length);
-  console.log("x.length2: ", x.length * 0.2 * 0.5);
-
-  return str.length - 1 >= x.length * 0.2 * 0.5 ? "Throw Up" : "No Problem";
+  for (i = 0; i < str.length; i++) {
+    str[i] != str[i + 1] ? counter++ : "";
+  }
+  return counter - 1 > str.length * 0.2 ? "Throw Up" : "No Problem";
 }
 
 console.log(seaSick("~"));
@@ -503,3 +495,245 @@ console.log(longest("inmanylanguages", "theresapairoffunctions"));
 //     .join()
 //     .replace(/(.)\1+/g, "$1")
 // );
+
+//Задача 16
+// Gordon Ramsay shouts. He shouts and swears. There may be something wrong with him.
+// Anyway, you will be given a string of four words. Your job is to turn them in to Gordon language.
+// Obviously the words should be Caps,
+//  Every word should end with '!!!!',
+//  Any letter 'a' or 'A' should become '@',
+//  Any other vowel should become '*'.
+console.log("Задача 16");
+function gordon(a) {
+  let newArr = a.split(" ");
+  let finArr = [];
+  let vowelArr = [
+    "a",
+    "e",
+    "i",
+    "o",
+    // "q",
+    "u",
+    // "y",
+    "A",
+    "E",
+    "I",
+    "O",
+    // "Q",
+    "U",
+    // "Y",
+  ];
+  const reducer = (currentValue) => {
+    if (currentValue == "a" || currentValue == "A") currentValue = "@";
+    else if (~vowelArr.indexOf(currentValue) != 0) currentValue = "*";
+    return currentValue;
+  };
+  for (let el of newArr) {
+    el = el.split("").map(reducer).join("") + "!!!!";
+    finArr.push(el);
+  }
+  let finStr = finArr.join(" ").toUpperCase();
+  return finStr;
+}
+
+console.log(gordon("What feck damn cake")); // 'WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!');
+console.log(gordon("are you stu pid")); //'@R*!!!! Y**!!!! ST*!!!! P*D!!!!');
+console.log(gordon("i am a chef")); //'*!!!! @M!!!! @!!!! CH*F!!!!');
+
+//решения гораздо короче
+// const gordon = a => a.slice().toUpperCase().replace(/A/g, '@').replace(/[EIOU]/g, '*').replace(/\ /g, '!!!! ')+'!!!!';
+// function gordon(a){
+//   return a.toUpperCase().replace(/(\w+)/g, '$1!!!!').replace(/A/g, '@').replace(/E|I|O|U/g, '*')
+//  }
+
+//Задача 17
+// The marketing team is spending way too much time typing in hashtags.
+// Let's help them with our own Hashtag Generator!
+
+// Here's the deal:
+
+// It must start with a hashtag (#).
+// All words must have their first letter capitalized.
+// If the final result is longer than 140 chars it must return false.
+// If the input or the result is an empty string it must return false.
+console.log("Задача 17");
+
+function generateHashtag(str) {
+  let newArr = str.split(/\s+/);
+  let littleArr = [];
+
+  for (let el of newArr) {
+    if (!el) return false;
+    littleArr.push(el[0].toUpperCase() + el.slice(1));
+  }
+
+  myFinStr = "#" + littleArr.join("");
+  if (myFinStr.length > 140) return false;
+  return myFinStr;
+}
+
+console.log("finstr is: ", generateHashtag(" ".repeat(200))); //, false, "Still an empty string")
+console.log("finstr is: ", generateHashtag("Do We have A Hashtag")); //, "#DoWeHaveAHashtag", "Expected a Hashtag (#) at the beginning.")
+console.log("finstr is: ", generateHashtag("Codewars")); //, "#Codewars", "Should handle a single word.")
+console.log("finstr is: ", generateHashtag("Codewars is nice")); //, "#CodewarsIsNice", "Should remove spaces.")
+
+//Задача 18
+// Pete likes to bake some cakes. He has some recipes and ingredients.
+// Unfortunately he is not good in maths. Can you help him to find out,
+//  how many cakes he could bake considering his recipes?
+
+// Write a function cakes(), which takes the recipe (object) and the
+// available ingredients (also an object) and returns the maximum number of
+// cakes Pete can bake (integer). For simplicity there are no units for the
+// amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200).
+// Ingredients that are not present in the objects, can be considered as 0.
+console.log("Задача 18");
+function cakes(recipeObj, haveObj) {
+  let cakeAmount = 100000; //костыль, но мне не стыдно
+  for (let el in recipeObj) {
+    if (!haveObj.hasOwnProperty(el)) {
+      return 0;
+    } else {
+      let tmp = Math.floor(haveObj[el] / recipeObj[el]);
+      cakeAmount >= tmp ? (cakeAmount = tmp) : "";
+    }
+  }
+  return cakeAmount;
+}
+
+console.log(
+  cakes(
+    { flour: 500, sugar: 200, eggs: 1 },
+    { flour: 1200, sugar: 1200, eggs: 5, milk: 200 }
+  )
+); // must return 2
+console.log(
+  cakes(
+    { apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100 },
+    { sugar: 500, flour: 2000, milk: 2000 }
+  )
+); // must return 0
+
+// гораздо проще и быстрее, чем у меня
+// const cakes = (needs, has) => Math.min(
+//   ...Object.keys(needs).map(key => Math.floor(has[key] / needs[key] || 0))
+// )
+
+//Задача 19
+// Implement a function which convert the given boolean
+// value into its string representation.
+console.log("Задача 19");
+
+booleanToString = (b) => (b ? "true" : "false");
+
+console.log("result: ", booleanToString(true));
+console.log("result: ", booleanToString(false));
+
+//Задача 20
+// Write a program that finds the summation of every number from 1 to num.
+// The number will always be a positive integer greater than 0.
+console.log("Задача 20");
+summation = function (n) {
+  if (n == 1) return n;
+  else return n + summation(n - 1);
+};
+
+console.log("sum: ", summation(1));
+console.log("sum: ", summation(8));
+
+//Задача 21
+// Simple enough this one - you will be given an array.
+// The values in the array will either be numbers or strings,
+//  or a mix of both. You will not get an empty array, nor a sparse one.
+
+// Your job is to return a single array that has first the
+//  numbers sorted in ascending order, followed by the strings sorted in alphabetic order.
+//   The values must maintain their original type.
+
+// Note that numbers written as strings are strings and must
+//  be sorted with the other strings.
+console.log("Задача 21");
+function dbSort(a) {
+  return a.sort(sortThis);
+}
+
+let sortThis = (a, b) => {
+  if (typeof a == String && typeof b == String) {
+    if (a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  } else if (typeof a !== typeof b) {
+    return 1;
+  } else {
+    return a - b;
+  }
+};
+
+console.log(dbSort([6, 2, 3, 4, 5]));
+console.log(dbSort([14, 32, 3, 5, 5]));
+console.log(dbSort([1, 2, 3, 4, 5]));
+console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]));
+console.log(dbSort(["C", "W", "W", "W", 1, 2, 0]));
+
+//=====================================недоделана==================
+
+//Задача 22
+// Time to win the lottery!
+// Given a lottery ticket (ticket), represented by an
+// array of 2-value arrays, you must find out if you've won the jackpot.
+
+// Example ticket:
+
+// [ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]
+// To do this, you must first count the 'mini-wins' on your ticket.
+//  Each subarray has both a string and a number within it. If the character code
+//  of any of the characters in the string matches the number, you get a mini win.
+//  Note you can only have one mini win per sub array.
+
+// Once you have counted all of your mini wins, compare that number
+// to the other input provided (win). If your total is more than or equal to (win),
+//  return 'Winner!'. Else return 'Loser!'.
+
+// All inputs will be in the correct format. Strings on tickets are not always the same length.
+console.log("Задача 22");
+function bingo(ticket, win) {
+  let winCount = 0;
+  for (let el of ticket) {
+    let [str, num] = el;
+    str.includes(String.fromCharCode(num)) ? winCount++ : "";
+  }
+  return winCount >= win ? "Winner!" : "Loser!";
+}
+
+console.log(
+  bingo(
+    [
+      ["ABC", 65],
+      ["HGR", 74],
+      ["BYHT", 74],
+    ],
+    2
+  )
+); // Loser!
+console.log(
+  bingo(
+    [
+      ["ABC", 65],
+      ["HGR", 74],
+      ["BYHT", 74],
+    ],
+    1
+  )
+); //Winner!
+console.log(
+  bingo(
+    [
+      ["HGTYRE", 74],
+      ["BE", 66],
+      ["JKTY", 74],
+    ],
+    3
+  )
+); // Loser!
