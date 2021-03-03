@@ -737,3 +737,94 @@ console.log(
     3
   )
 ); // Loser!
+
+//Задача 23
+// You'll have to translate a string to Pilot's alphabet (NATO phonetic alphabet).
+// Input:
+// If, you can read?
+// Output:
+// India Foxtrot , Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta ?
+console.log("Задача 23");
+let natoArr = new Map([
+  ["a", "Alfa"],
+  ["b", "Bravo"],
+  ["c", "Charlie"],
+  ["d", "Delta"],
+  ["e", "Echo"],
+  ["f", "Foxtrot"],
+  ["g", "Golf"],
+  ["h", "Hotel"],
+  ["i", "India"],
+  ["j", "Juliett"],
+  ["k", "Kilo"],
+  ["l", "Lima"],
+  ["m", "Mike"],
+  ["n", "November"],
+  ["o", "Oscar"],
+  ["p", "Papa"],
+  ["q", "Quebec"],
+  ["r", "Romeo"],
+  ["s", "Sierra"],
+  ["t", "Tango"],
+  ["u", "Uniform"],
+  ["v", "Victor"],
+  ["w", "Whiskey"],
+  ["x", "Xray"],
+  ["y", "Yankee"],
+  ["z", "Zulu"],
+]);
+function to_nato(words) {
+  let newarr = words.toLowerCase().replace(/\s+/g, "").split("");
+  let outArr = [];
+  for (let el of newarr) {
+    natoArr.get(el) === undefined
+      ? outArr.push(el)
+      : outArr.push(natoArr.get(el));
+  }
+  return outArr.join(" ");
+}
+console.log(to_nato("If you can read"));
+console.log(to_nato("Did not see that coming"));
+console.log(to_nato("go for it!"));
+
+//Задача 23
+// You'll have to simulate the video game's character selection screen behaviour,
+//  more specifically the selection grid. Such screen looks like this:
+console.log("Задача 23");
+let fighters = [
+  ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+  ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"],
+];
+moves = ["up", "left", "right", "left", "left"];
+
+function streetFighterSelection(fighters, position = [0, 0], moves) {
+  let fighterArr = fighters;
+  let movesArr = moves;
+  let pos = position;
+  let finArr = [];
+  for (let mov of movesArr) {
+    if (mov === "up") {
+      pos[0] -= 1;
+    } else if (mov === "down") {
+      pos[0] += 1;
+    } else if (mov === "right") {
+      pos[1] += 1;
+    } else if (mov === "left") {
+      pos[1] -= 1;
+    } else {
+    }
+    pos[0] < 0
+      ? (pos[0] = 0)
+      : pos[0] > fighters.length - 1
+      ? (pos[0] = fighters.length - 1)
+      : "";
+    pos[1] < 0
+      ? (pos[1] = fighters[0].length - 1)
+      : pos[1] > fighters[0].length - 1
+      ? (pos[1] = 0)
+      : "";
+    finArr.push(fighterArr[pos[0]][pos[1]]);
+  }
+  return finArr;
+}
+console.log(streetFighterSelection(fighters, [0, 0], moves));
